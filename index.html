@@ -8,24 +8,202 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.2/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font-awesome CDN goes here -->
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
-  <body onload="fetchCategories()">
+  <body>
 
     <!-- header area start  -->
     <header>
-
+      <nav class="container mx-auto">
+        <div class="navbar bg-base-100">
+          <div class="flex-1">
+            <a class="btn btn-ghost normal-case text-lg text-gray-100 bg-blue-500">News</a>
+            <a class="btn btn-ghost normal-case text-lg text-blue-500">Portal</a>
+          </div>
+          <div class="flex-none gap-4">
+            <ul class="flex gap-4">
+              <li class="text-lg font-bold">Blog</li>
+              <li class="text-lg font-bold">News</li>
+            </ul>
+            <div class="dropdown dropdown-end">
+              <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                <div class="w-10 rounded-full">
+                  <img src="./assets/Avatar.png" />
+                </div>
+              </label>
+              <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                <li>
+                  <a class="justify-between">
+                    Profile
+                    <span class="badge">New</span>
+                  </a>
+                </li>
+                <li><a>Settings</a></li>
+                <li><a>Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <hr class="h-[3px] mx-20  bg-gray-300">
+      <!-- news category section start -->
+      <section class="container mx-auto my-4">
+        <div class="menu menu-horizontal gap-4" id="categoriesContainer">
+          
+        </div>
+      </section>
+      <!-- news category section end -->
+      <!-- alert section start -->
+      <section class="container mx-auto">
+        <div class="alert bg-white font-semibold rounded-none">
+          <div>
+            <span><span id="countNews"></span> items found for category <span id="categoryName"></span></span>
+          </div>
+        </div>
+      </section>
+      <!-- alert section end -->
     </header>
     <!-- header area end -->
+
     <!-- main area start -->
     <main>
-      
+      <!-- control section start -->
+      <section class="flex justify-between container mx-auto my-4">
+        <div class="flex gap-4 items-center">
+          <div>
+            Sort By View:
+          </div>
+          <div>
+            <select class="select select-bordered w-full max-w-xs">
+              <option selected>Default</option>
+              <option>Normal Apple</option>
+              <option>Normal Orange</option>
+              <option>Normal Tomato</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex gap-4 items-center">
+          <div class="bg-blue-500 text-white px-3 py-2 rounded-md">
+            Today’s Pick
+          </div>
+          <div class="border-2 border-blue-500  px-3 py-2 rounded-md">
+            Trending
+          </div>
+        </div>
+      </section>
+      <!-- control section end -->
+      <!-- news show section start -->
+      <section class="container mx-auto flex flex-col gap-8">
+        <div class="card card-side bg-white ">
+          <figure><img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Movie"/></figure>
+          <div class="card-body">
+            <h2 class="card-title text-2xl">New movie is released!</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam magnam possimus, repellendus eum dicta voluptate aliquam dignissimos aut hic enim ad excepturi. Perferendis ut consequatur incidunt esse, impedit libero ex eveniet quisquam nulla maiores accusantium, at ea soluta ipsa voluptates porro in distinctio aliquam praesentium quis fuga, excepturi tenetur saepe.</p>
+            <div class="card-footer flex justify-between">
+              <div class="flex items-center gap-3">
+                <div>
+                  <img src="./assets/Avatar.png" alt="">
+                </div>
+                <div>
+                  <p>Jane Cooper</p>
+                  <p>Jan 10, 2022 </p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <i class="fa-regular fa-eye"></i>
+                <p>1.5M</p>
+              </div>
+              <div>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <div>
+                <i class="fa-solid fa-right-long"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card card-side bg-white ">
+          <figure><img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Movie"/></figure>
+          <div class="card-body">
+            <h2 class="card-title text-2xl">New movie is released!</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam magnam possimus, repellendus eum dicta voluptate aliquam dignissimos aut hic enim ad excepturi. Perferendis ut consequatur incidunt esse, impedit libero ex eveniet quisquam nulla maiores accusantium, at ea soluta ipsa voluptates porro in distinctio aliquam praesentium quis fuga, excepturi tenetur saepe.</p>
+            <div class="card-footer flex justify-between">
+              <div class="flex items-center gap-3">
+                <div>
+                  <img src="./assets/Avatar.png" alt="">
+                </div>
+                <div>
+                  <p>Jane Cooper</p>
+                  <p>Jan 10, 2022 </p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <i class="fa-regular fa-eye"></i>
+                <p>1.5M</p>
+              </div>
+              <div>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <div>
+                <i class="fa-solid fa-right-long"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card card-side bg-white ">
+          <figure><img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Movie"/></figure>
+          <div class="card-body">
+            <h2 class="card-title text-2xl">New movie is released!</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam magnam possimus, repellendus eum dicta voluptate aliquam dignissimos aut hic enim ad excepturi. Perferendis ut consequatur incidunt esse, impedit libero ex eveniet quisquam nulla maiores accusantium, at ea soluta ipsa voluptates porro in distinctio aliquam praesentium quis fuga, excepturi tenetur saepe.</p>
+            <div class="card-footer flex justify-between">
+              <div class="flex items-center gap-3">
+                <div>
+                  <img src="./assets/Avatar.png" alt="">
+                </div>
+                <div>
+                  <p>Jane Cooper</p>
+                  <p>Jan 10, 2022 </p>
+                </div>
+              </div>
+              <div class="flex gap-3 items-center">
+                <i class="fa-regular fa-eye"></i>
+                <p>1.5M</p>
+              </div>
+              <div>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <div>
+                <i class="fa-solid fa-right-long"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- news show section end -->
     </main>
     <!-- main area end -->
-      
-    </section>
+
+    <!-- footer section start -->
+      <footer class="footer footer-center p-4 bg-base-300 text-base-content mt-4">
+        <div>
+          <p>Copyright © 2023 - All right reserved by News-Portal Limited</p>
+        </div>
+      </footer>
+    <!-- footer section end -->
 
     <!-- Custom JS goes here -->
     <script src="./scripts/news-portal.js"></script>
